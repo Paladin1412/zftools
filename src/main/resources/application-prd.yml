@@ -1,0 +1,22 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /
+  ssl:
+    enabled: false
+
+debug: false
+
+#DataSource
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.16.37.162:3306/zftools?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Ziroom@1018!
+
+#Mybatis
+mybatis:
+  config-location: mybatis-config.xml
+  mapper-locations: /mapper/**.xml
+  entity_package: com.ziroom.zftools.entity

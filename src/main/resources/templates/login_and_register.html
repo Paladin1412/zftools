@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- 引入模板引擎的表达式 -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/ziroom.ico" type="image/ico"/>
+
+    <title>金融财务数据集市 - 登录/注册页</title>
+
+    <!--css-->
+    <!-- Bootstrap css -->
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="lib/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="lib/gentelella/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+    <div class="login_wrapper">
+        <!--登录-->
+        <div class="animate form login_form">
+            <section class="login_content">
+                <form>
+                    <h1>登录</h1>
+                    <div>
+                        <input id="login-username" type="text" class="form-control" placeholder="账号" required=""/>
+                    </div>
+                    <div>
+                        <input id="login-password" type="password" class="form-control" placeholder="密码" required=""/>
+                    </div>
+                    <div>
+                        <input id="login-submit" type="button" class="btn btn-default submit" value="登录"/>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                        <p class="change_link">没有账号 ?
+                            <a href="#signup" class="to_register"> 注册 </a>
+                        </p>
+                        <div class="clearfix"></div>
+                        <br/>
+                    </div>
+                </form>
+            </section>
+        </div>
+        <!--注册-->
+        <div id="register" class="animate form registration_form">
+            <section class="login_content">
+                <form>
+                    <h1>注册</h1>
+                    <div>
+                        <input id="register-username" type="text" class="form-control" placeholder="账号" required=""/>
+                    </div>
+                    <div>
+                        <input id="register-password" type="password" class="form-control" placeholder="密码"
+                               required=""/>
+                    </div>
+                    <div>
+                        <input id="register-submit" type="button" class="btn btn-default submit" value="注册"/>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                        <p class="change_link">已有账号 ?
+                            <a href="#signin" class="to_register"> 登录 </a>
+                        </p>
+                        <div class="clearfix"></div>
+                        <br/>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    <!--引入js-->
+    <!--加载jQuery-->
+    <script type="text/javascript" src="lib/jquery-3.4.1/jquery-3.4.1.js"></script>
+    <!--login.html的Ajax请求-->
+    <script type="text/javascript" src="js/user/login_and_register.js"></script>
+</div>
+</body>
+</html>

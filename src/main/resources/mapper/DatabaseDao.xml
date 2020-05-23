@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ziroom.zftools.dao.DatabaseDao">
+
+    <resultMap id="database" type="Database">
+        <id property="id" column="id" javaType="int"></id>
+        <result property="dbCategory" column="db_category" javaType="String"></result>
+        <result property="tDbIp" column="t_db_ip" javaType="String"></result>
+        <result property="tDbUsername" column="t_db_username" javaType="String"></result>
+        <result property="tDBPassword" column="t_db_password" javaType="String"></result>
+        <result property="qDbIp" column="q_db_ip" javaType="String"></result>
+        <result property="qDbUsername" column="q_db_username" javaType="String"></result>
+        <result property="qDbPassword" column="q_db_password" javaType="String"></result>
+        <result property="sysId" column="sys_id" javaType="int"></result>
+        <association property="system" column="sys_id" javaType="System">
+            <id property="id" column="id" javaType="int"></id>
+            <result property="sysName" column="sys_name" javaType="String"></result>
+            <result property="tSysAddress" column="t_sys_address" javaType="String"></result>
+            <result property="tSysIp" column="t_sys_ip" javaType="String"></result>
+            <result property="qSysAddress" column="q_sys_address" javaType="String"></result>
+            <result property="qSysIp" column="q_sys_ip" javaType="String"></result>
+        </association>
+    </resultMap>
+
+    <select id="queryDatabaseByDbId" parameterType="int" resultMap="database">
+        select db.*, sys.sys_name, sys.t_sys_address, sys.t_sys_ip, sys.q_sys_address, sys.q_sys_ip
+        from tb_db db
+        left join tb_sys sys on db.sys_id = sys.id
+        where db.id = #{id}
+        order by db_id asc;
+    </select>
+
+    <select id="queryAllDatabase" resultMap="database">
+        select db.*, sys.sys_name, sys.t_sys_address, sys.t_sys_ip, sys.q_sys_address, sys.q_sys_ip
+        from tb_db db
+        left join tb_sys sys on db.sys_id = sys.id
+        order by db_id asc;
+    </select>
+
+</mapper>

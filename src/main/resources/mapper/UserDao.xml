@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ziroom.zftools.dao.UserDao">
+
+    <resultMap id="user" type="User">
+        <id property="id" column="id" javaType="int"></id>
+        <result property="uid" column="uid" javaType="String"></result>
+        <result property="username" column="username" javaType="String"></result>
+        <result property="password" column="password" javaType="String"></result>
+        <result property="departmentId" column="department_id" javaType="String"></result>
+    </resultMap>
+
+    <select id="queryUserByUsername" parameterType="String" resultMap="user">
+        select *
+        from tb_user
+        where username = #{username}
+        order by id asc;
+    </select>
+
+    <select id="queryAllUser" resultMap="user">
+        select *
+        from tb_user
+        order by id asc;
+    </select>
+
+    <!--useGeneratedKeys：使用JDBC的useGeneratedKeys获取数据库的自增主键值-->
+    <!--keyColumn：数据库的主键-->
+    <!--keyProperty：对象的哪个属性和数据库的主键进行绑定的-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="uid" keyColumn="uid"
+            parameterType="User">
+        insert into
+        tb_user(uid, username, password, department_id)
+        values
+        (#{uid}, #{username}, #{password}, #{departmentId});
+    </insert>
+
+</mapper>
