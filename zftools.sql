@@ -21,10 +21,10 @@ create table tb_user
 -- 清掉表里数据
 delete from tb_user;
 -- 重置自增长id：id = 1
-alter table tb_user AUTO_INCREMENT=1;
+alter table tb_user AUTO_INCREMENT = 1;
 
 -- 添加测试数据
-insert into tb_user(uid, username, password, department_id) values ('test1','admin', 'qwerty', 'test1');
+insert into tb_user(uid, username, password, department_id) values ('test','test', 'qwerty', 'test');
 
 
 
@@ -42,7 +42,7 @@ create table tb_department
 -- 清掉表里数据
 delete from tb_department;
 -- 重置自增长id：id = 1
-alter table tb_department AUTO_INCREMENT=1;
+alter table tb_department AUTO_INCREMENT = 1;
 
 
 
@@ -64,7 +64,7 @@ create table tb_sys
 -- 清掉表里数据
 delete from tb_sys;
 -- 重置自增长id：id = 1
-alter table tb_sys AUTO_INCREMENT=1;
+alter table tb_sys AUTO_INCREMENT = 1;
 
 -- 添加测试数据
 insert into tb_sys(sys_name, t_sys_address, t_sys_ip, q_sys_address, q_sys_ip, db_id) values ('财务系统', 'http://t.zf.ziroom.com', '127.0.0.1', 'http://q.zf.ziroom.com', '127.0.0.2', 1);

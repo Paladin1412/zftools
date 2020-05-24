@@ -1,8 +1,8 @@
-$(function (format) {
+$(function () {
 
     // 接口地址
-    var getSystemNavigationUrl = '/home/get_system_navigation';
-    var getUserInfoUrl = '/home/get_user_info';
+    var getSystemNavigationUrl = '/home_get_system_navigation';
+    var getUserInfoUrl = '/home_get_user_info';
 
     getUserInfo();
     getSystemNavigationInfo();
@@ -35,24 +35,26 @@ $(function (format) {
             dataType: 'json',
             success: function (data) {
                 console.log('data = ' + JSON.stringify(data));
-                var sysList = data;
+                var sysList = eval(data.data);
+                console.log("sysList = " + sysList)
                 var tableHtml = '';
                 var row = {};
-                if (data.success) {
-                    for (var i = 0; i < sysList.length; a++) {
+                if (data.message == "success") {
+                    console.log("sysList.length = " + sysList.length);
+                    for (var i = 0; i < sysList.length; i++) {
                         row.sysId = sysList[i].sysId;
                         row.sysName = sysList[i].sysName;
                         row.tSysAddress = sysList[i].tSysAddress;
                         row.tSysIp = sysList[i].tSysIp;
                         row.qSysAddress = sysList[i].qSysAddress;
                         row.qSysIp = sysList[i].qSysIp;
-                        row.dbCategory = sysList[i].dbCategory;
-                        row.tDbIp = sysList[i].tDbIp;
-                        row.tDbUsername = sysList[i].tDbUsername;
-                        row.tDBPassword = sysList[i].tDBPassword;
-                        row.qDbIp = sysList[i].qDbIp;
-                        row.qDbUsername = sysList[i].qDbUsername;
-                        row.qDbPassword = sysList[i].qDbPassword;
+                        row.dbCategory = sysList[i].database.dbCategory;
+                        row.tDbIp = sysList[i].database.tDbIp;
+                        row.tDbUsername = sysList[i].database.tDbUsername;
+                        row.tDBPassword = sysList[i].database.tDBPassword;
+                        row.qDbIp = sysList[i].database.qDbIp;
+                        row.qDbUsername = sysList[i].database.qDbUsername;
+                        row.qDbPassword = sysList[i].database.qDbPassword;
                         tableHtml = tableHtml + '<tr>' +
                             '<td>' + row.sysId + '</td>' +
                             '<td>' + row.sysName + '</td>' +

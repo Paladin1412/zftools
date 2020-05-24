@@ -2,7 +2,7 @@ $(function () {
 
     // 接口地址
     var loginUrl = '/user/check_login_info';
-    var registerUrl = 'register';
+    var registerUrl = '/register';
 
     // 登录
     $('#login-submit').click(function () {
@@ -24,7 +24,7 @@ $(function () {
             success: function (data) {
                 console.log('data = ' + JSON.stringify(data));
                 if (data.message == "success") {
-                    window.location.href = '/home/page_display';
+                    window.location.href = 'home_page';
                 } else {
                     alert('失败，' + data.data);
                 }
@@ -51,7 +51,7 @@ $(function () {
             processData: false,
             success: function (data) {
                 console.log('data = ' + JSON.stringify(data));
-                if (data.success) {
+                if (data.message == "success") {
                     alert('注册成功，请登录！');
                     window.location.href = '/login#signin';
                 } else {

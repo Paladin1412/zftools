@@ -36,6 +36,7 @@
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <fastjson.version>1.2.68</fastjson.version>
         <mybatis-spring-boot-starter.version>2.1.2</mybatis-spring-boot-starter.version>
+        <c3p0.version>0.9.5.5</c3p0.version>
     </properties>
 
     <dependencies>
@@ -81,6 +82,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
         </dependency>
 
         <!-- SpringBoot的单元测试模块 -->
