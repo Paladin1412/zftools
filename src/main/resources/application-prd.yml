@@ -7,7 +7,7 @@ server:
 
 debug: false
 
-#DataSource
+#DataSource Config
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,8 +15,19 @@ spring:
     username: root
     password: Ziroom@1018!
 
-#Mybatis
+#Mybatis Config
 mybatis:
   config-location: mybatis-config.xml
   mapper-locations: /mapper/**.xml
   entity_package: com.ziroom.zftools.entity
+
+#HttpClient Config
+http:
+  max-total: 20
+  default-max-perrout: 2
+  validate-after-inactivity: 2000
+  connection-request-timeout: 500
+  connection-timeout: 1000
+  socket-timeout: 5000
+  expect-continue-enabled: false
+  connection-manager-shared: true
